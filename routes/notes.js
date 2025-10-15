@@ -32,7 +32,6 @@ router.post('/addnote', fetchuser, [
     body('description', 'description must be at least 5 characters').isLength({ min: 5 }),
 ], async (req, res) => {
     try {
-        console.log(req.body);
         const { title, description, tag } = req.body;
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -54,7 +53,6 @@ router.post('/addnote', fetchuser, [
 // update the existing Note using PUT: '/api/notes/updatenote'.LOGIN REQUIRED
 
 router.put('/updatenote/:id', fetchuser, async (req, res) => {
-    console.log("rb", req.body);
     const { title, description, tag } = req.body;
     try {
 
